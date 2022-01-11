@@ -2,6 +2,7 @@ namespace StringHelper.Tests
 {
     using System.Collections.Generic;
     using Xunit;
+    using static System.Net.Mime.MediaTypeNames;
     using static TddPractice1.StringHelper;
 
     public class StringHelperTests
@@ -149,7 +150,7 @@ namespace StringHelper.Tests
         {
             var actual = RemoveWordAt(text, pos);
 
-            Assert.Equal(expected,actual);
+            Assert.Equal(expected, actual);
         }
         [Fact]
         public void RemoveWordAt_ShouldReturnEmptyStringOnNullOrEmptyText()
@@ -165,13 +166,56 @@ namespace StringHelper.Tests
         #endregion RemoveWordAt_Tests
 
         #region InsertWordAfter_Tests
-        [Fact]
-        public void InsertWordAfter_ShouldFail()
+        [Theory]
+        [InlineData("A cat in a hat", "a", "huge", "A cat in a huge hat")]
+        [InlineData("Trust the force", "force", "cat", "Trust the force cat")]
+        public void InsertWordAfter_AddingWordShouldWork(string text, string after, string add, string expected)
         {
-            var expected = "hepp";
-            var actual = InsertWordAfter("hepp", "hopp", "hipp");
+            var actual = InsertWordAfter(text, after, add);
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void InsertWordAfter_ShouldReturnUnmodifiedTextOnNullOrEmptyAfterOrAdd()
+        {
+            var expected = "Trust the force";
+            var actual = InsertWordAfter("Trust the force", "", "meow");
             Assert.Equal(expected, actual);
         }
         #endregion InsertWordAfter_Tests
+
+        #region SwapWords_Tests
+        [Fact]
+        public void SwapWords_ShouldSwapWords()
+        {
+            var text = "It's not wise to upset a Wookiee.";
+            var word1 = 1;
+            var word2 = 3;
+            var expected = "It's to wise not upset a Wookiee.";
+
+            var actual = SwapWords(text, word1, word2);
+
+            Assert.Equal(expected, actual);
+        }
+        [Theory]
+        [InlineData("It's not wise to upset a Wookiee.", -1, 4, "It's not wise to upset a Wookiee.")]
+        [InlineData("It's not wise to upset a Wookiee.", 1, 124, "It's not wise to upset a Wookiee.")]
+        public void SwapWords_OutOfRangeSwapWordIndexShouldReturnUnmodifiedText(string text, int word1, int word2, string expected)
+        {
+            var actual = SwapWords(text, word1, word2);
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void SwapWords_ShouldReturnUnmodifiedTextWhenSwappingSameWord()
+        {
+            var text = "It's not wise to upset a Wookiee.";
+            var word1 = 1;
+            var word2 = 1;
+            var expected = "It's not wise to upset a Wookiee.";
+
+            var actual = SwapWords(text, word1, word2);
+
+            Assert.Equal(expected, actual);
+        }
+        #endregion SwapWords_Tests
     }
 }

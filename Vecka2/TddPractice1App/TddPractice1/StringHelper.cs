@@ -28,8 +28,8 @@ namespace TddPractice1
             var words = text.Trim().Split(' ').ToList<string>();
             if (words.Contains(remove)) words.Remove(remove);
             var output = "";
-            foreach (var word in words) output += word + " ";
-            return output.Trim();
+
+            return ListToString(words);
         }
         public static string RemoveWordAt(string text, int pos)
         {
@@ -38,16 +38,40 @@ namespace TddPractice1
             var words = text.Split(' ').ToList<string>();
             if (pos < 0 || pos > words.Count - 1) return text;
             words.RemoveAt(pos);
-            var output = "";
-            foreach (var word in words)
-            {
-                output += word + " ";
-            }
-            return output.Trim();
+            return ListToString(words);
         }
         public static string InsertWordAfter(string text, string after, string add)
         {
-            return "";
+            if (string.IsNullOrWhiteSpace(text)) return "";
+            else if (string.IsNullOrWhiteSpace(after) || string.IsNullOrWhiteSpace(add)) return text;
+
+            var words = text.Trim().Split(' ').ToList<string>();
+            var idx = words.IndexOf(after);
+            if (idx >= 0)
+            {
+                if (idx == words.Count - 1) words.Add(add);
+                else words.Insert(idx + 1, add);
+            }
+            return ListToString(words);
+        }
+        public static string SwapWords(string text, int word1, int word2)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return "";
+            var words = text.Trim().Split(' ').ToList<string>();
+            if ((word1 < 0 || word1 > words.Count - 1) || word1 == word2) return text;
+            if (word2 < 0 || word2 > words.Count - 1) return text;
+
+            var swap = words[word1];
+            words[word1] = words[word2];
+            words[word2] = swap;
+
+            return ListToString(words);
+        }
+        private static string ListToString(List<string> words)
+        {
+            var output = string.Empty;
+            foreach (var word in words) output += word + " ";
+            return output.Trim();
         }
     }
 }
