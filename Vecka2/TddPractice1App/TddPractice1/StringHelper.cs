@@ -27,7 +27,6 @@ namespace TddPractice1
             if (string.IsNullOrWhiteSpace(text) || string.IsNullOrWhiteSpace(remove)) return "";
             var words = text.Trim().Split(' ').ToList<string>();
             if (words.Contains(remove)) words.Remove(remove);
-            var output = "";
 
             return ListToString(words);
         }
@@ -58,7 +57,7 @@ namespace TddPractice1
         {
             if (string.IsNullOrWhiteSpace(text)) return "";
             var words = text.Trim().Split(' ').ToList<string>();
-            if ((word1 < 0 || word1 > words.Count - 1) || word1 == word2) return text;
+            if (word1 < 0 || word1 > words.Count - 1 || word1 == word2) return text;
             if (word2 < 0 || word2 > words.Count - 1) return text;
 
             var swap = words[word1];

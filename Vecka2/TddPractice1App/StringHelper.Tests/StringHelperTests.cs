@@ -1,8 +1,11 @@
+// -----------------------------------------------------------------------------------------------
+//  StringHelperTests.cs by Thomas Thorin, Copyright (C) 2021.
+//  Published under GNU General Public License v3 (GPL-3)
+// -----------------------------------------------------------------------------------------------
+
 namespace StringHelper.Tests
 {
-    using System.Collections.Generic;
     using Xunit;
-    using static System.Net.Mime.MediaTypeNames;
     using static TddPractice1.StringHelper;
 
     public class StringHelperTests
