@@ -5,13 +5,7 @@
 
 namespace TDDFirst
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Numerics;
-    using System.Text;
     using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
 
     public class UserData
     {
@@ -30,16 +24,15 @@ namespace TDDFirst
             //}
 
             //return lower && upper && special;
-            Regex rx = new Regex(@"^(?=.*?[!.:$%&()=\/])(?=.*?[a-zåäö])(?=.*?[A-ZÅÄÖ])(?=\S+$).{7,25}$");
+            Regex rx = new Regex(@"^(?=.*?[!.:$%&()=/])(?=.*?[a-zåäö])(?=.*?[A-ZÅÄÖ])(?=\S+$).{7,25}$");
             return password != null && rx.IsMatch(password.Trim());
         }
 
         public bool IsEmailOk(string email)
         {
-            Regex rx = new Regex(@"^(?=[a-zåäö.@_-]{6,60}$)(?=^[a-zåäö._-]{1,50}@)([a-zåäö]([a-zåäö0-9-_]+)?(\.[a-zåäö]([a-zåäö0-9-_]+)?)?)@[a-zåäö]([a-zåäö0-9_-]+)?\.[a-zåäö]{2,}$");
+            var rx = new Regex(@"^(?=[a-zåäö.@_-]{6,60}$)(?=^[a-zåäö._-]{1,50}@)([a-zåäö]([a-zåäö0-9-_]+)?(\.[a-zåäö]([a-zåäö0-9-_]+)?)?)@[a-zåäö]([a-zåäö0-9_-]+)?\.[a-zåäö]{2,}$");
             return email != null && rx.IsMatch(email.Trim());
         }
-
 
         public bool IsPhoneOk(string phone)
         {

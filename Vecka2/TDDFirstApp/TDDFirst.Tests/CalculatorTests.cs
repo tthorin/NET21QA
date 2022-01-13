@@ -16,8 +16,9 @@ namespace TDDFirst.Tests
         [InlineData(2.5555, 2, 4.5555)]
         [InlineData(-5, 5, 0)]
         [InlineData(-5, -5, -10)]
+        [Trait("Category","AddTest")]
         public void Add_ShouldAddNumbersCorrectly(double x,double y,double expected)
-        {   
+        {
             var actual = calc.Add(x, y);
 
             Assert.Equal(expected, actual);

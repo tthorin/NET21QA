@@ -6,7 +6,7 @@ namespace TDDFirst.Tests
     public class UserDataTests
     {
         #region Setup
-        UserData ud;
+        private readonly UserData ud;
         public UserDataTests()
         {
             ud = new();
@@ -134,7 +134,7 @@ namespace TDDFirst.Tests
         [InlineData("tom tom@something.com", false)]
         [InlineData("tom.tom@som ething.com", false)]
         public void IsEmailOk_ShouldFailOnEmailsContainingSpace(string email, bool expected)
-        {   
+        {
             var actual = ud.IsEmailOk(email);
             Assert.Equal(expected, actual);
         }
@@ -142,7 +142,7 @@ namespace TDDFirst.Tests
         public void IsEmailOk_ShouldReturnFalseOnNullInput()
         {
             string email = null;
-            var actual = ud.IsEmailOk(email); 
+            var actual = ud.IsEmailOk(email);
             Assert.False(actual);
         }
         #endregion IsEmailOk_Tests
