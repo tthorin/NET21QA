@@ -3,7 +3,6 @@
 //  Published under GNU General Public License v3 (GPL-3)
 // -----------------------------------------------------------------------------------------------
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
 namespace TDDThursday.Tests
@@ -20,7 +19,7 @@ namespace TDDThursday.Tests
         {
             var actual = NumberHelper.HighAndLow(numbers);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -30,7 +29,7 @@ namespace TDDThursday.Tests
         {
             var actual = NumberHelper.HighAndLow(numbers);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -41,7 +40,7 @@ namespace TDDThursday.Tests
 
             var actual = NumberHelper.HighAndLow(test);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -52,7 +51,7 @@ namespace TDDThursday.Tests
 
             var actual = NumberHelper.HighAndLow(test);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         #endregion HighAndLow_Tests
@@ -66,7 +65,7 @@ namespace TDDThursday.Tests
         {
             var actual = NumberHelper.MoveTheZeroes(numbers);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -76,7 +75,7 @@ namespace TDDThursday.Tests
         {
             var actual = NumberHelper.MoveTheZeroes(numbers);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
@@ -86,9 +85,55 @@ namespace TDDThursday.Tests
             int[] expected = { 0 };
             var actual = NumberHelper.MoveTheZeroes(test);
 
-            CollectionAssert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         #endregion MoveTheZeroes_Test
+
+        #region OddNumber_Tests
+
+        [Theory]
+        [InlineData(new int[] { 1, 3, 5, 3, 5 },1)]
+        [InlineData(new int[] { 2, 2, 2, 4, 5, 2, 4, 4, 5 }, 4)]
+        [InlineData(new int[] { 2, 0, 0, 0, 0, 0, 0, 0, 2 }, 0)]
+        [InlineData(new int[] { 1 }, 1)]
+        public void OddNumber_ShouldReturnCorrectNumber(int[] numbers,int expected)
+        {
+            var actual = NumberHelper.OddNumber(numbers);
+
+            Assert.Equal(expected,actual);
+        }
+        [Fact]
+        public void OddNumber_ShouldReturnNegativeOneOnNullInput()
+        {
+            int[] test = null;
+            var expected = -1;
+
+            var actual = NumberHelper.OddNumber(test);
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void OddNumber_ShouldReturnNegativeOneOnEmptyInput()
+        {
+            int[] test = System.Array.Empty<int>();
+            var expected = -1;
+
+            var actual = NumberHelper.OddNumber(test);
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void OddNumber_ShouldReturnNegativeOneOnNoOddOccurance()
+        {
+            int[] test = { 1, 1 };
+            var expected = -1;
+
+            var actual = NumberHelper.OddNumber(test);
+
+            Assert.Equal(expected, actual);
+        }
+
+        #endregion Oddnumber_Tests
     }
 }

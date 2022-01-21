@@ -38,5 +38,25 @@
             }
             return numbers;
         }
+
+        public static int OddNumber(int[] numbers)
+        {
+            if (numbers == null || numbers.Length == 0) return -1;
+
+            List<int> checkedNumbers = new();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                var count = 0;
+                for (int j = i; j < numbers.Length; j++)
+                {
+                    if (checkedNumbers.Contains(numbers[i])) break;
+                    if (numbers[j] == numbers[i]) count++;
+                }
+                if(!checkedNumbers.Contains(numbers[i])) checkedNumbers.Add(numbers[i]);
+                if (count % 2 == 1) return numbers[i];
+            }
+            return -1;
+        }
     }
 }
