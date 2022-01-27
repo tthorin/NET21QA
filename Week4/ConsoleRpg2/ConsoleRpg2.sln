@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRpgApp", "ConsoleRpgApp\ConsoleRpgApp.csproj", "{8F081DA3-4C2E-4D00-9E4F-8DF9AC276268}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRpgApp.Specs", "ConsoleRpgApp.Specs\ConsoleRpgApp.Specs.csproj", "{0209C6DF-3DDC-4FAF-8647-64C67DF31821}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F081DA3-4C2E-4D00-9E4F-8DF9AC276268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F081DA3-4C2E-4D00-9E4F-8DF9AC276268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F081DA3-4C2E-4D00-9E4F-8DF9AC276268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F081DA3-4C2E-4D00-9E4F-8DF9AC276268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0209C6DF-3DDC-4FAF-8647-64C67DF31821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0209C6DF-3DDC-4FAF-8647-64C67DF31821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0209C6DF-3DDC-4FAF-8647-64C67DF31821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0209C6DF-3DDC-4FAF-8647-64C67DF31821}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

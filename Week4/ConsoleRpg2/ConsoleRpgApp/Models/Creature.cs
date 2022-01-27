@@ -1,12 +1,16 @@
-﻿using ConsoleRpgApp.Interfaces;
+﻿using ConsoleRpg2.Interfaces;
 
-namespace ConsoleRpgApp.Models;
+namespace ConsoleRpg2.Models;
 
 public class Creature : ICreature
 {
+    /// <summary>
+    /// The hp (health) of the creature
+    /// </summary>
     public int Hp { get; set; }
     public int Atk { get; set; }
     public int Def { get; set; }
+    public bool Alive => Hp > 0;
 
     public void Attack(ICreature target)
     {
@@ -15,6 +19,6 @@ public class Creature : ICreature
 
     public void Defend(int attack)
     {
-        Hp = attack > Def ? Hp + Def - attack : Hp;
+        if (attack > Def) Hp -= attack - Def;
     }
 }
