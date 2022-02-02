@@ -21,4 +21,15 @@ public class Creature : ICreature
     {
         if (attack > Def) Hp -= attack - Def;
     }
+
+    public bool Combat(ICreature target)
+    {
+        while (this.Alive && target.Alive)
+        {
+            this.Attack(target);
+            target.Attack(this);
+        }
+
+        return Alive;
+    }
 }
