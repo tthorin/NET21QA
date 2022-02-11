@@ -7,5 +7,5 @@ namespace AutoFacPracticeApp.Interfaces;
 
 public interface ICalculator
 {
-    void Add(int a, int b);
+    int Add(int a, int b);
 }

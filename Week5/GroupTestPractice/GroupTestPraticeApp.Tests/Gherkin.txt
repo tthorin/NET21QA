@@ -1,0 +1,33 @@
+Salary scenario:
+
+Du är på arbetsintervju för en plats som juniorkonsult och blir erbjuden 33 000: - i månaden. Det är
+inte en fast summa utan en standardmånad på 4 veckor x 5 arbetsdagar a 100% ger dig 33 000: -
+
+Given a salary of 33000 SEK for 4 weeks, 5 days per week and 8 hours per day of work
+When you calculate your hourly pay
+Then you should get a result of 206,25 SEK per hour
+
+Given a monthly pay of 33000 SEK per month
+When you calculate your yearly salary
+Then you should get the result 396000 SEK
+
+Given a "arbetsgivaravgift" of 31.42% and an annual pay of 39600 SEK
+When the annual fee if calculated
+Then the result should be 124423.20 SEK
+
+------------------------------------------------------------------------
+Intrest Scenario: 
+
+Du bestämmer dig för att spara 1000:- i månaden på ett sparkonto med 3% årsränta
+Skapa en metod som räknar ut vad du har i slutet av året och hur mycket (i kronor) som räntan blir.
+Hur mycket har du efter 3, 5 eller 10 år?
+
+Given you save 1000 SEK a month for per year and the annual interest is 3%
+When you check your account after <years> year
+Then you should have <amount> SEK in the account
+Examples:
+|years  |amount     |
+|1      |12360      |
+|3      |38203.52   |
+|5      |65620.92   |
+|10     |141693.55  |
